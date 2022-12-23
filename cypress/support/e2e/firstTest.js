@@ -27,9 +27,6 @@ describe('My First Test (Test Scenario)', () => {
     it('Verify Forget Password Failed', () => {
         cy.visit('https://parabank.parasoft.com/parabank/index.htm')
 
-        // Assert element atau text
-        cy.contains('Customer Login')
-
         //Assert element atau text
         cy.contains('Experience the difference')
 
@@ -39,9 +36,6 @@ describe('My First Test (Test Scenario)', () => {
 
         //Assert URL
         cy.url().should('include', '/parabank/lookup.htm')
-
-        //Assert element or text
-        cy.contains('Customer Lookup')
 
         //Input first name
         cy.get('#firstName').type('nikolai').should('have.value' , 'nikolai')
@@ -62,17 +56,17 @@ describe('My First Test (Test Scenario)', () => {
         cy.get('#lookupForm > table > tbody > tr:nth-child(6)').type('1')
 
         //Input ssn
-        cy.get('#ssn').type('3')
+        cy.get('#ssn').type('000')
 
         //Click login
         cy.get('#lookupForm > table > tbody > tr:nth-child(8) > td:nth-child(2) > input')
             .click()
 
         //Assert successfully
-        cy.contains('Your login information was located successfully')
+        cy.contains('The customer information provided could not be found')
     })
 
-    it('Verify Forget Password Successfully (once you run this account information will change and it will be negative test case)', () => {
+    it('Verify Forget Password Successfully', () => {
         cy.visit('https://parabank.parasoft.com/parabank/index.htm')
 
         // Assert element atau text
@@ -92,22 +86,22 @@ describe('My First Test (Test Scenario)', () => {
         cy.contains('Customer Lookup')
 
         //Input first name
-        cy.get('#firstName').type('Akash').should('have.value' , 'Akash')
+        cy.get('#firstName').type('a').should('have.value' , 'a')
 
         //Input last name
-        cy.get('#lastName').type('Nagarro').should('have.value' , 'Nagarro')
+        cy.get('#lastName').type('b').should('have.value' , 'b')
 
         //Input address
-        cy.get('#lookupForm > table > tbody > tr:nth-child(3) > td:nth-child(2)').type('Chitaipur')
+        cy.get('#lookupForm > table > tbody > tr:nth-child(3) > td:nth-child(2)').type('c')
 
         //Input city
-        cy.get('#lookupForm > table > tbody > tr:nth-child(4)').type('Varanasi')
+        cy.get('#lookupForm > table > tbody > tr:nth-child(4)').type('d')
 
         //Input state
-        cy.get('#lookupForm > table > tbody > tr:nth-child(5)').type('Uttar Pradesh')
+        cy.get('#lookupForm > table > tbody > tr:nth-child(5)').type('e')
 
         //Input zip code
-        cy.get('#lookupForm > table > tbody > tr:nth-child(6)').type('208024')
+        cy.get('#lookupForm > table > tbody > tr:nth-child(6)').type('1')
 
         //Input ssn
         cy.get('#ssn').type('3')
